@@ -1,3 +1,4 @@
+import 'package:file_up/src/features/presentation/widgets/logo.dart';
 import 'package:flutter/material.dart';
 
 class SignBackGroundFrame extends StatelessWidget {
@@ -8,6 +9,7 @@ class SignBackGroundFrame extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
+          const Expanded(child: Logo()),
           body(),
         ],
       ),
