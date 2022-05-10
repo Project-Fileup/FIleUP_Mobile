@@ -1,10 +1,11 @@
+import 'package:file_up/src/features/presentation/widgets/sign_background_frame.dart';
 import 'package:flutter/material.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends SignBackGroundFrame {
   const SignInPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  body() {
     return Container();
   }
 }
