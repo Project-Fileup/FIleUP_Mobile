@@ -15,6 +15,9 @@ class SignInPage extends SignBackGroundFrame {
           CircleTextField(
             hintText: AppStrings.emailTextField,
           ),
+          CircleTextField(
+            hintText: AppStrings.passwordTextField,
+          ),
         ],
       ),
       margin: const EdgeInsets.only(right: 45, left: 45),
