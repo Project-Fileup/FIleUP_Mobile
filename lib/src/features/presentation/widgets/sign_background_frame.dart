@@ -10,11 +10,11 @@ class SignBackGroundFrame extends StatelessWidget {
       body: Column(
         children: [
           const Expanded(child: Logo()),
-          body(),
+          Expanded(child: body()),
         ],
       ),
     );
   }
 
-  body() {}
+  body() => Container();
 }
