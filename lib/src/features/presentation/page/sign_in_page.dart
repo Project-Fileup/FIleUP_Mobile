@@ -1,3 +1,4 @@
+import 'package:file_up/src/features/presentation/widgets/default_button.dart';
 import 'package:file_up/src/features/presentation/widgets/sign_background_frame.dart';
 import 'package:file_up/src/features/presentation/widgets/space_with_height.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,10 @@ class SignInPage extends StatelessWidget {
             SpaceWithHeight(height: 20),
             CircleTextField(
               hintText: AppStrings.passwordTextField,
+            ),
+            SpaceWithHeight(height: 20),
+            SizedBox(
+              child: DefaultButton(title: '로그인'),
             ),
           ],
         ),
