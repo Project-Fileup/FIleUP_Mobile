@@ -2,7 +2,12 @@ import 'package:file_up/src/features/presentation/widgets/logo.dart';
 import 'package:flutter/material.dart';
 
 class SignBackGroundFrame extends StatelessWidget {
-  const SignBackGroundFrame({Key? key}) : super(key: key);
+  const SignBackGroundFrame({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
+
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -10,11 +15,9 @@ class SignBackGroundFrame extends StatelessWidget {
       body: Column(
         children: [
           const Expanded(child: Logo()),
-          Expanded(child: body()),
+          Expanded(child: child),
         ],
       ),
     );
   }
-
-  body() => Container();
 }
