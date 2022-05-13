@@ -25,7 +25,7 @@ class CircleTextField extends StatelessWidget {
   _border() => OutlineInputBorder(
         borderRadius: BorderRadius.circular(30),
         borderSide: const BorderSide(
-          color: AppColors.primayColor,
+          color: AppColors.primaryColor,
           width: 2,
         ),
       );
