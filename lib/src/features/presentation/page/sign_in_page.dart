@@ -1,3 +1,4 @@
+import 'package:file_up/src/features/presentation/page/local_widgets/ask_sign_up.dart';
 import 'package:file_up/src/features/presentation/widgets/default_button.dart';
 import 'package:file_up/src/features/presentation/widgets/sign_background_frame.dart';
 import 'package:file_up/src/features/presentation/widgets/space_with_height.dart';
@@ -26,6 +27,8 @@ class SignInPage extends StatelessWidget {
             SizedBox(
               child: DefaultButton(title: '로그인'),
             ),
+            SpaceWithHeight(height: 20),
+            AskSignUp(),
           ],
         ),
         margin: const EdgeInsets.only(right: 45, left: 45),

@@ -5,6 +5,15 @@ class AskSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Row(
+      children: [
+        Text('file up이 처음이신가요?'),
+        TextButton(
+          onPressed: () {},
+          child: Text('회원가입'),
+        ),
+      ],
+      mainAxisAlignment: MainAxisAlignment.center,
+    );
   }
 }
