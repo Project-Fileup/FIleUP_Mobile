@@ -1,4 +1,5 @@
 import 'package:file_up/src/features/presentation/page/local_widgets/ask_sign_up.dart';
+import 'package:file_up/src/features/presentation/page/local_widgets/social_sign_in_divider.dart';
 import 'package:file_up/src/features/presentation/widgets/default_button.dart';
 import 'package:file_up/src/features/presentation/widgets/sign_background_frame.dart';
 import 'package:file_up/src/features/presentation/widgets/space_with_height.dart';
@@ -29,6 +30,8 @@ class SignInPage extends StatelessWidget {
             ),
             SpaceWithHeight(height: 20),
             AskSignUp(),
+            SpaceWithHeight(height: 20),
+            SocialSignInDivider(),
           ],
         ),
         margin: const EdgeInsets.only(right: 45, left: 45),
