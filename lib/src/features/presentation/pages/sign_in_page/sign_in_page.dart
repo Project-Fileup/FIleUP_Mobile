@@ -1,12 +1,13 @@
-import 'package:file_up/src/features/presentation/page/local_widgets/ask_sign_up.dart';
-import 'package:file_up/src/features/presentation/page/local_widgets/social_sign_in_divider.dart';
-import 'package:file_up/src/features/presentation/widgets/default_button.dart';
-import 'package:file_up/src/features/presentation/widgets/sign_background_frame.dart';
-import 'package:file_up/src/features/presentation/widgets/space_with_height.dart';
+
 import 'package:flutter/material.dart';
 
-import '../../../config/values/app_strings.dart';
-import '../widgets/circle_text_field.dart';
+import '../../../../config/values/app_strings.dart';
+import '../../widgets/circle_text_field.dart';
+import '../../widgets/default_button.dart';
+import '../../widgets/sign_background_frame.dart';
+import '../../widgets/space_with_height.dart';
+import 'local_widgets/ask_sign_up.dart';
+import 'local_widgets/social_sign_in_divider.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({Key? key}) : super(key: key);

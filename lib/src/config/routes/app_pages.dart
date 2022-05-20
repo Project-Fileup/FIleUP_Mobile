@@ -1,5 +1,6 @@
 import 'package:file_up/src/config/routes/app_routes.dart';
-import 'package:file_up/src/features/presentation/page/sign_in_page.dart';
+
+import '../../features/presentation/pages/sign_in_page/sign_in_page.dart';
 
 class AppPages {
   static const String initial = AppRoutes.signIn;
