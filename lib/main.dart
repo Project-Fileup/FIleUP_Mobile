@@ -14,9 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'FileUP',
       theme: ThemeData(
+        useMaterial3: true,
         colorScheme: const ColorScheme.light().copyWith(
           primary: AppColors.primaryColor,
-        )
+        ),
       ),
       themeMode: ThemeMode.light,
       initialRoute: AppPages.initial,

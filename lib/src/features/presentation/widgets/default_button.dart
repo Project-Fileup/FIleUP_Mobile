@@ -1,3 +1,4 @@
+import 'package:file_up/src/config/values/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class DefaultButton extends StatelessWidget {
@@ -17,11 +18,12 @@ class DefaultButton extends StatelessWidget {
     return SizedBox(
       child: ElevatedButton(
         onPressed: () {},
-        child: Text(title),
+        child: Text(
+          title,
+          style: const TextStyle(color: Colors.white),
+        ),
         style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
-          ),
+          primary: AppColors.primaryColor,
         ),
       ),
       width: width,
