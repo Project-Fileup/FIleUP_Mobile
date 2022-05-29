@@ -14,8 +14,13 @@ class SignBackGroundFrame extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const Expanded(child: Logo()),
-          Expanded(child: child),
+          SizedBox(
+            child: const Logo(),
+            height: MediaQuery.of(context).size.height * 0.45,
+          ),
+          Expanded(
+            child: child,
+          ),
         ],
       ),
     );
