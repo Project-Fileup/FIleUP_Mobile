@@ -13,22 +13,22 @@ class GuideText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String text;
-
-    switch (type) {
-      case AuthType.signIn:
-        text = 'File UP을 이용하시려면 로그인이 필요합니다.\n로그인을 진행해주세요.';
-        break;
-      case AuthType.signUp:
-        text = 'File UP에 오신 것을 환영합니다.\n회원가입을 진행해주세요.';
-        break;
-    }
+    String text = _getGuideText();
 
     return Text(
       text,
       style: const TextStyle(fontWeight: FontWeight.bold),
       textAlign: TextAlign.center,
     );
+  }
+
+  String _getGuideText() {
+    switch (type) {
+      case AuthType.signIn:
+        return 'File UP을 이용하시려면 로그인이 필요합니다.\n로그인을 진행해주세요.';
+      case AuthType.signUp:
+        return 'File UP에 오신 것을 환영합니다.\n회원가입을 진행해주세요.';
+    }
   }
 }
 
@@ -42,18 +42,8 @@ class HelpText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String helpText, authText;
-
-    switch (type) {
-      case AuthType.signIn:
-        helpText = 'FileUp이 처음이신가요?';
-        authText = '회원가입';
-        break;
-      case AuthType.signUp:
-        helpText = '이미 계정이 있으신가요?';
-        authText = '로그인';
-        break;
-    }
+    List<String> helpTexts = _getHelpText();
+    String helpText = helpTexts[0], authText = helpTexts[1];
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +63,7 @@ class HelpText extends StatelessWidget {
     );
   }
 
-  _onClickEvent(AuthType authType, BuildContext context) {
+  void _onClickEvent(AuthType authType, BuildContext context) {
     switch(authType) {
       case AuthType.signIn:
         context.go(AppRoutes.signUp);
@@ -82,5 +72,22 @@ class HelpText extends StatelessWidget {
         context.go(AppRoutes.signIn);
         break;
     }
+  }
+
+  List<String> _getHelpText() {
+    String helpText, authText;
+
+    switch (type) {
+      case AuthType.signIn:
+        helpText = 'FileUp이 처음이신가요?';
+        authText = '회원가입';
+        break;
+      case AuthType.signUp:
+        helpText = '이미 계정이 있으신가요?';
+        authText = '로그인';
+        break;
+    }
+
+    return [helpText, authText];
   }
 }

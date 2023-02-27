@@ -44,19 +44,10 @@ class BaseAuthButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String buttonText;
+    String buttonText = _getButtonText();
     List<Color> colors = _initColors();
     Color backgroundColor = colors[0];
     Color textColor = colors[1];
-
-    switch (type) {
-      case AuthType.signIn:
-        buttonText = '${platformType.name} 로그인';
-        break;
-      case AuthType.signUp:
-        buttonText = '${platformType.name}로 시작하기';
-        break;
-    }
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 25),
@@ -109,5 +100,14 @@ class BaseAuthButton extends StatelessWidget {
     }
 
     return [backgroundColor, textColor];
+  }
+
+  String _getButtonText() {
+    switch (type) {
+      case AuthType.signIn:
+        return '${platformType.name} 로그인';
+      case AuthType.signUp:
+        return '${platformType.name}로 시작하기';
+    }
   }
 }
