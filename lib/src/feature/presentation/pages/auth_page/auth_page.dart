@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/local_widgets/background_panel.dart';
 import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/local_widgets/base_auth_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -12,17 +13,7 @@ class AuthPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Center(
-            child: SvgPicture.asset(
-              'assets/images/background.svg',
-              fit: BoxFit.cover,
-              height: 600,
-            ),
-          ),
-          BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 1.5, sigmaY: 1.5),
-            child: Container(color: Colors.white.withOpacity(.5)),
-          ),
+          const BackgroundPanel(),
           Column(
             children: [
               Expanded(
