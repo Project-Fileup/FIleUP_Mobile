@@ -4,8 +4,18 @@ import 'package:flutter/material.dart';
 import 'local_widgets/background_panel.dart';
 import 'local_widgets/logo_panel.dart';
 
+enum AuthType {
+  signIn,
+  signUp,
+}
+
 class AuthPage extends StatelessWidget {
-  const AuthPage({Key? key}) : super(key: key);
+  final AuthType type;
+
+  const AuthPage({
+    Key? key,
+    required this.type,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +24,9 @@ class AuthPage extends StatelessWidget {
         children: [
           const BackgroundPanel(),
           Column(
-            children: const [
-              LogoPanel(),
-              AuthPanel(),
+            children: [
+              const LogoPanel(),
+              AuthPanel(type: type),
             ],
           ),
         ],

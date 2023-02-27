@@ -1,3 +1,4 @@
+import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/auth_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -14,33 +15,48 @@ enum PlatformType {
 }
 
 class BaseAuthButton extends StatelessWidget {
-  final PlatformType authType;
+  final PlatformType platformType;
+  final AuthType type;
 
   const BaseAuthButton.google({
     Key? key,
-    this.authType = PlatformType.google,
+    required this.type,
+    this.platformType = PlatformType.google,
   }) : super(key: key);
 
   const BaseAuthButton.apple({
     Key? key,
-    this.authType = PlatformType.apple,
+    required this.type,
+    this.platformType = PlatformType.apple,
   }) : super(key: key);
 
   const BaseAuthButton.kakao({
     Key? key,
-    this.authType = PlatformType.kakao,
+    required this.type,
+    this.platformType = PlatformType.kakao,
   }) : super(key: key);
 
   const BaseAuthButton.naver({
     Key? key,
-    this.authType = PlatformType.naver,
+    required this.type,
+    this.platformType = PlatformType.naver,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    String buttonText;
     List<Color> colors = _initColors();
     Color backgroundColor = colors[0];
     Color textColor = colors[1];
+
+    switch (type) {
+      case AuthType.signIn:
+        buttonText = '${platformType.name} 로그인';
+        break;
+      case AuthType.signUp:
+        buttonText = '${platformType.name}로 시작하기';
+        break;
+    }
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 25),
@@ -52,11 +68,11 @@ class BaseAuthButton extends StatelessWidget {
         onPressed: () {},
         child: Row(
           children: [
-            SvgPicture.asset('assets/images/${authType.path}.svg'),
+            SvgPicture.asset('assets/images/${platformType.path}.svg'),
             Expanded(
               child: Center(
                 child: Text(
-                  '${authType.name} 로그인',
+                  buttonText,
                   style: TextStyle(
                     color: textColor,
                   ),
@@ -73,7 +89,7 @@ class BaseAuthButton extends StatelessWidget {
     Color backgroundColor = Colors.black;
     Color textColor = Colors.black;
 
-    switch (authType) {
+    switch (platformType) {
       case PlatformType.google:
         backgroundColor = Colors.white;
         textColor = Colors.black;

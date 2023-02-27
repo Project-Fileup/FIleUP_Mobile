@@ -3,10 +3,17 @@ import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/auth_pag
 import 'package:go_router/go_router.dart';
 
 abstract class AppPages {
-  static final GoRouter router = GoRouter(routes: [
-    GoRoute(
-      path: AppRoutes.baseUrl,
-      builder: (context, state) => const AuthPage(),
-    ),
-  ]);
+  static final GoRouter router = GoRouter(
+    routes: [
+      GoRoute(
+        path: AppRoutes.signIn,
+        builder: (context, state) => const AuthPage(type: AuthType.signIn),
+      ),
+      GoRoute(
+        path: AppRoutes.signUp,
+        builder: (context, state) => const AuthPage(type: AuthType.signUp),
+      ),
+    ],
+    initialLocation: AppRoutes.signIn,
+  );
 }

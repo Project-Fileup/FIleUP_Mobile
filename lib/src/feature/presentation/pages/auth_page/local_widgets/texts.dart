@@ -1,32 +1,69 @@
+import 'package:file_up_mobile/src/core/routes/app_routes.dart';
+import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/auth_page.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class GuideText extends StatelessWidget {
-  const GuideText({Key? key}) : super(key: key);
+  final AuthType type;
+
+  const GuideText({
+    Key? key,
+    required this.type,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      'File UP을 이용하시려면 로그인이 필요합니다.\n로그인을 진행해주세요.',
-      style: TextStyle(fontWeight: FontWeight.bold),
+    String text;
+
+    switch (type) {
+      case AuthType.signIn:
+        text = 'File UP을 이용하시려면 로그인이 필요합니다.\n로그인을 진행해주세요.';
+        break;
+      case AuthType.signUp:
+        text = 'File UP에 오신 것을 환영합니다.\n회원가입을 진행해주세요.';
+        break;
+    }
+
+    return Text(
+      text,
+      style: const TextStyle(fontWeight: FontWeight.bold),
       textAlign: TextAlign.center,
     );
   }
 }
 
 class HelpText extends StatelessWidget {
-  const HelpText({Key? key}) : super(key: key);
+  final AuthType type;
+
+  const HelpText({
+    Key? key,
+    required this.type,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    String helpText, authText;
+
+    switch (type) {
+      case AuthType.signIn:
+        helpText = 'FileUp이 처음이신가요?';
+        authText = '회원가입';
+        break;
+      case AuthType.signUp:
+        helpText = '이미 계정이 있으신가요?';
+        authText = '로그인';
+        break;
+    }
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('FileUp이 처음이신가요?'),
+        Text(helpText),
         TextButton(
-          onPressed: () {},
-          child: const Text(
-            '회원가입',
-            style: TextStyle(
+          onPressed: () => _onClickEvent(type, context),
+          child: Text(
+            authText,
+            style: const TextStyle(
               color: Color.fromRGBO(89, 130, 200, 1),
               fontWeight: FontWeight.bold,
             ),
@@ -34,5 +71,16 @@ class HelpText extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  _onClickEvent(AuthType authType, BuildContext context) {
+    switch(authType) {
+      case AuthType.signIn:
+        context.go(AppRoutes.signUp);
+        break;
+      case AuthType.signUp:
+        context.go(AppRoutes.signIn);
+        break;
+    }
   }
 }
