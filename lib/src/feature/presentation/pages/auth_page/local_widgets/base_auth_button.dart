@@ -1,3 +1,4 @@
+import 'package:file_up_mobile/src/core/values/app_colors.dart';
 import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/auth_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -77,25 +78,25 @@ class BaseAuthButton extends StatelessWidget {
   }
 
   List<Color> _initColors() {
-    Color backgroundColor = Colors.black;
-    Color textColor = Colors.black;
+    Color backgroundColor = AppColors.black;
+    Color textColor = AppColors.black;
 
     switch (platformType) {
       case PlatformType.google:
-        backgroundColor = Colors.white;
-        textColor = Colors.black;
+        backgroundColor = AppColors.white;
+        textColor = AppColors.black;
         break;
       case PlatformType.apple:
-        backgroundColor = Colors.black;
-        textColor = Colors.white;
+        backgroundColor = AppColors.black;
+        textColor = AppColors.white;
         break;
       case PlatformType.kakao:
-        backgroundColor = const Color.fromRGBO(254, 229, 0, 1);
-        textColor = Colors.black;
+        backgroundColor = AppColors.kakaoColor;
+        textColor = AppColors.black;
         break;
       case PlatformType.naver:
-        backgroundColor = const Color.fromRGBO(3, 199, 90, 1);
-        textColor = Colors.white;
+        backgroundColor = AppColors.naverColor;
+        textColor = AppColors.white;
         break;
     }
 

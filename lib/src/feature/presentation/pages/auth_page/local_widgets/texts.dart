@@ -1,4 +1,5 @@
 import 'package:file_up_mobile/src/core/routes/app_routes.dart';
+import 'package:file_up_mobile/src/core/values/app_colors.dart';
 import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/auth_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -54,7 +55,7 @@ class HelpText extends StatelessWidget {
           child: Text(
             authText,
             style: const TextStyle(
-              color: Color.fromRGBO(89, 130, 200, 1),
+              color: AppColors.primary,
               fontWeight: FontWeight.bold,
             ),
           ),
