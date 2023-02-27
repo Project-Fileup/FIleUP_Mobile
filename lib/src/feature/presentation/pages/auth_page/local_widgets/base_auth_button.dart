@@ -73,7 +73,7 @@ class BaseAuthButton extends StatelessWidget {
             SvgPicture.asset('assets/images/${authType.path}.svg'),
             Expanded(
               child: Center(
-                child:  Text(
+                child: Text(
                   '${authType.name} 로그인',
                   style: TextStyle(
                     color: textColor,
