@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/local_widgets/auth_button_panel.dart';
 import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/local_widgets/background_panel.dart';
 import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/local_widgets/base_auth_button.dart';
+import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/local_widgets/guide_text.dart';
 import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/local_widgets/logo_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,11 +23,7 @@ class AuthPage extends StatelessWidget {
               Expanded(
                 child: Column(
                   children: [
-                    Text(
-                      'File UP을 이용하시려면 로그인이 필요합니다.\n로그인을 진행해주세요.',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
+                    GuideText(),
                     AuthButtonPanel(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
