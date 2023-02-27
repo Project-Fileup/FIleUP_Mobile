@@ -38,27 +38,9 @@ class BaseAuthButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color backgroundColor = Colors.black;
-    Color textColor = Colors.black;
-
-    switch (authType) {
-      case PlatformType.google:
-        backgroundColor = Colors.white;
-        textColor = Colors.black;
-        break;
-      case PlatformType.apple:
-        backgroundColor = Colors.black;
-        textColor = Colors.white;
-        break;
-      case PlatformType.kakao:
-        backgroundColor = const Color.fromRGBO(254, 229, 0, 1);
-        textColor = Colors.black;
-        break;
-      case PlatformType.naver:
-        backgroundColor = const Color.fromRGBO(3, 199, 90, 1);
-        textColor = Colors.white;
-        break;
-    }
+    List<Color> colors = _initColors();
+    Color backgroundColor = colors[0];
+    Color textColor = colors[1];
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 25),
@@ -85,5 +67,31 @@ class BaseAuthButton extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  List<Color> _initColors() {
+    Color backgroundColor = Colors.black;
+    Color textColor = Colors.black;
+
+    switch (authType) {
+      case PlatformType.google:
+        backgroundColor = Colors.white;
+        textColor = Colors.black;
+        break;
+      case PlatformType.apple:
+        backgroundColor = Colors.black;
+        textColor = Colors.white;
+        break;
+      case PlatformType.kakao:
+        backgroundColor = const Color.fromRGBO(254, 229, 0, 1);
+        textColor = Colors.black;
+        break;
+      case PlatformType.naver:
+        backgroundColor = const Color.fromRGBO(3, 199, 90, 1);
+        textColor = Colors.white;
+        break;
+    }
+
+    return [backgroundColor, textColor];
   }
 }
