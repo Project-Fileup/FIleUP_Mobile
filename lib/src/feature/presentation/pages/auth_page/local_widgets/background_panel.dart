@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:file_up_mobile/src/core/values/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -19,7 +20,7 @@ class BackgroundPanel extends StatelessWidget {
         ),
         BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 1.5, sigmaY: 1.5),
-          child: Container(color: Colors.white.withOpacity(.5)),
+          child: Container(color: AppColors.white.withOpacity(.5)),
         ),
       ],
     );
