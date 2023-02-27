@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/local_widgets/auth_button_panel.dart';
 import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/local_widgets/background_panel.dart';
 import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/local_widgets/base_auth_button.dart';
 import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/local_widgets/logo_panel.dart';
@@ -26,10 +27,7 @@ class AuthPage extends StatelessWidget {
                       style: TextStyle(fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
-                    BaseAuthButton.google(),
-                    BaseAuthButton.apple(),
-                    BaseAuthButton.kakao(),
-                    BaseAuthButton.naver(),
+                    AuthButtonPanel(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
