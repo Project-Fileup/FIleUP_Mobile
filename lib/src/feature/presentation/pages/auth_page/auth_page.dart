@@ -31,7 +31,6 @@ class AuthPage extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.white,
     );
   }
 }
