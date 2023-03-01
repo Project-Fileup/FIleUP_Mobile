@@ -15,15 +15,28 @@ enum PlatformType {
   const PlatformType(this.name, this.path);
 }
 
+class GoogleAuthButton extends StatefulWidget {
+  final AuthType type;
+
+  const GoogleAuthButton({Key? key, required this.type}) : super(key: key);
+
+  @override
+  State<GoogleAuthButton> createState() => _GoogleAuthButtonState();
+}
+
+class _GoogleAuthButtonState extends State<GoogleAuthButton> {
+  @override
+  Widget build(BuildContext context) {
+    return const BaseAuthButton();
+  }
+}
+
 class BaseAuthButton extends StatelessWidget {
   final PlatformType platformType;
   final AuthType type;
 
-  const BaseAuthButton.google({
-    Key? key,
-    required this.type,
-    this.platformType = PlatformType.google,
-  }) : super(key: key);
+  const BaseAuthButton(
+      {this.type = AuthType.signIn, this.platformType = PlatformType.google});
 
   const BaseAuthButton.apple({
     Key? key,

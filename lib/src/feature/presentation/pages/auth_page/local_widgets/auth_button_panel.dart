@@ -15,7 +15,7 @@ class AuthButtonPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        BaseAuthButton.google(type: type),
+        GoogleAuthButton(type: type),
         BaseAuthButton.apple(type: type),
         BaseAuthButton.kakao(type: type),
         BaseAuthButton.naver(type: type),
