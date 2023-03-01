@@ -1,4 +1,4 @@
-import 'package:file_up_mobile/src/feature/presentation/pages/auth_page/auth_page.dart';
+import 'package:file_up_mobile/src/feature/presentation/view/pages/auth_page/auth_page.dart';
 import 'package:flutter/material.dart';
 
 import 'base_auth_button.dart';
