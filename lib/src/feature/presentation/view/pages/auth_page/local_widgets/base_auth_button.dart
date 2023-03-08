@@ -33,6 +33,7 @@ class _GoogleAuthButtonState extends State<GoogleAuthButton> {
     return _BaseAuthButton(
       platformType: GoogleOAuth(),
       type: widget.type,
+      pressed: () => _onClickEvent(),
     );
   }
 
@@ -46,11 +47,13 @@ class _GoogleAuthButtonState extends State<GoogleAuthButton> {
 class _BaseAuthButton extends StatelessWidget {
   final PlatformType platformType;
   final AuthType type;
+  final VoidCallback pressed;
 
   const _BaseAuthButton({
     super.key,
     required this.platformType,
     required this.type,
+    required this.pressed,
   });
 
   @override
@@ -67,7 +70,7 @@ class _BaseAuthButton extends StatelessWidget {
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(backgroundColor),
         ),
-        onPressed: () {},
+        onPressed: pressed,
         child: Row(
           children: [
             SvgPicture.asset('assets/images/${platformType.iconPath}.svg'),
