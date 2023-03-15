@@ -134,6 +134,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  flutter_naver_login:
+    dependency: "direct main"
+    description:
+      name: flutter_naver_login
+      sha256: beaccb21de56d3ad7e050a4aae6ef12661e2473bd644742b3157b115c621e273
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.7.0"
   flutter_svg:
     dependency: "direct main"
     description:
