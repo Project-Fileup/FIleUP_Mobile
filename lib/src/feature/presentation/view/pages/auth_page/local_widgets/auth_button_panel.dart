@@ -18,7 +18,7 @@ class AuthButtonPanel extends StatelessWidget {
         GoogleAuthButton(type: type),
         BaseAuthButton.apple(type: type),
         KakaoAuthButton(type: type),
-        BaseAuthButton.naver(type: type),
+        NaverAuthButton(type: type),
       ],
     );
   }

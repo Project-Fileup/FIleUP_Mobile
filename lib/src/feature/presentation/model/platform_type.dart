@@ -15,3 +15,7 @@ class GoogleOAuth extends PlatformType {
 class KakaoOAuth extends PlatformType {
   KakaoOAuth({super.name = '카카오', super.iconPath = 'kakao_icon'});
 }
+
+class NaverOAuth extends PlatformType {
+  NaverOAuth({super.name = '네이버', super.iconPath = 'naver_icon'});
+}

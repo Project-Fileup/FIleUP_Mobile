@@ -2,6 +2,7 @@ import 'package:file_up_mobile/src/core/values/app_colors.dart';
 import 'package:file_up_mobile/src/feature/presentation/model/platform_type.dart';
 import 'package:file_up_mobile/src/feature/presentation/view/pages/auth_page/auth_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_naver_login/flutter_naver_login.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
@@ -86,6 +87,33 @@ class _KakaoAuthButtonState extends State<KakaoAuthButton> {
   }
 }
 
+class NaverAuthButton extends StatefulWidget {
+  final AuthType type;
+
+  const NaverAuthButton({Key? key, required this.type}) : super(key: key);
+
+  @override
+  State<NaverAuthButton> createState() => _NaverAuthButtonState();
+}
+
+class _NaverAuthButtonState extends State<NaverAuthButton> {
+  @override
+  Widget build(BuildContext context) {
+    return _BaseAuthButton(
+      platformType: NaverOAuth(),
+      type: widget.type,
+      pressed: () => _onClickEvent(),
+    );
+  }
+
+  Future<void> _onClickEvent() async {
+    final NaverLoginResult result = await FlutterNaverLogin.logIn();
+    final NaverAccessToken token = await FlutterNaverLogin.currentAccessToken;
+
+    print('[LOG] naver token $token');
+  }
+}
+
 class _BaseAuthButton extends StatelessWidget {
   final PlatformType platformType;
   final AuthType type;
@@ -142,6 +170,9 @@ class _BaseAuthButton extends StatelessWidget {
     } else if (platformType is KakaoOAuth) {
       backgroundColor = AppColors.kakaoColor;
       textColor = AppColors.black;
+    } else if(platformType is NaverOAuth) {
+      backgroundColor = AppColors.naverColor;
+      textColor = AppColors.white;
     }
 
     return [backgroundColor, textColor];
