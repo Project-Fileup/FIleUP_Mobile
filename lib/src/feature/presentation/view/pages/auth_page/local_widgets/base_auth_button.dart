@@ -4,6 +4,8 @@ import 'package:file_up_mobile/src/feature/presentation/view/pages/auth_page/aut
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
+import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 
 // Todo: Remvoe this model
 enum TempPlatformType {
@@ -41,6 +43,46 @@ class _GoogleAuthButtonState extends State<GoogleAuthButton> {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
     print('[LOG] test : $googleUser');
+  }
+}
+
+class KakaoAuthButton extends StatefulWidget {
+  final AuthType type;
+
+  const KakaoAuthButton({Key? key, required this.type}) : super(key: key);
+
+  @override
+  State<KakaoAuthButton> createState() => _KakaoAuthButtonState();
+}
+
+class _KakaoAuthButtonState extends State<KakaoAuthButton> {
+  @override
+  Widget build(BuildContext context) {
+    return _BaseAuthButton(
+      platformType: KakaoOAuth(),
+      type: widget.type,
+      pressed: () => _onClickEvent(),
+    );
+  }
+
+  Future<void> _onClickEvent() async {
+    OAuthToken token;
+
+    if (await isKakaoTalkInstalled()) {
+      try {
+        token = await UserApi.instance.loginWithKakaoTalk();
+      } catch (_) {
+        return;
+      }
+    } else {
+      try {
+        token = await UserApi.instance.loginWithKakaoAccount();
+      } catch (_) {
+        return;
+      }
+    }
+
+    debugPrint('[LOG] token : $token');
   }
 }
 
@@ -96,6 +138,9 @@ class _BaseAuthButton extends StatelessWidget {
 
     if (platformType is GoogleOAuth) {
       backgroundColor = AppColors.white;
+      textColor = AppColors.black;
+    } else if (platformType is KakaoOAuth) {
+      backgroundColor = AppColors.kakaoColor;
       textColor = AppColors.black;
     }
 
